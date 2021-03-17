@@ -17,5 +17,4 @@ from ...relative import subpackage1
 
 # @Disabled OctoLinkerResolve(<root>/python/relative/subpackage1/classes.py)
 from ..subpackage1 import classes
-
 # @Disabled OctoLinkerResolveAbove(<root>/python/subpackage1)
