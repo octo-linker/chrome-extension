@@ -1,18 +1,14 @@
 # @OctoLinkerResolve(<root>/python/relative/simple.py)
 from .simple import MyClass
-# @OctoLinkerResolve(<root>/python/relative/simple.py)
+
+# @Disabled OctoLinkerResolve(<root>/python/relative/simple.py)
 from relative.simple import my_func
+
 # @OctoLinkerResolve(<root>/python/relative/simple.py)
 from . import simple
 
 
-__all__ = [
-    "MyClass",
-    "my_func",
-    "a",
-    "_B"
-    "e"
-]
+__all__ = ["MyClass", "my_func", "a", "_B" "e"]
 
 c = 5
 d = 6

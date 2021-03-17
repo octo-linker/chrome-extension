@@ -1,6 +1,6 @@
 {
   "name": "OctoLinker",
-  "version": "6.7.0",
+  "version": "6.8.1",
   "manifest_version": 2,
   "author": "Stefan Buck",
   "description": "OctoLinker – Links together, what belongs together.",
@@ -32,9 +32,7 @@
       ],
       "js": [
         "app.js"
-      ],
-      "run_at": "document_idle",
-      "all_frames": false
+      ]
     }
   ],
   "permissions": [

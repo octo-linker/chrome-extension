@@ -17,14 +17,14 @@ function createLinkElement() {
 
 function injectUrl(node, value, startOffset, endOffset) {
   let el;
-  try {
-    // Take quote marks into account to narrow down match
-    // in case value is given on the left and right hand side
-    if (startOffset > 0) {
-      startOffset -= 1;
-    }
-    const textMatch = node.textContent.slice(startOffset, endOffset + 1).trim(); // we don't want to include whitespace in the link
+  // Take quote marks into account to narrow down match
+  // in case value is given on the left and right hand side
+  if (startOffset > 0) {
+    startOffset -= 1;
+  }
+  const textMatch = node.textContent.slice(startOffset, endOffset + 1).trim(); // we don't want to include whitespace in the link
 
+  try {
     findAndReplaceDOMText(node, {
       find: textMatch,
       replace: (portion) => {
@@ -41,6 +41,28 @@ function injectUrl(node, value, startOffset, endOffset) {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
+  }
+
+  if (!el && node.textContent.includes(textMatch)) {
+    el = createLinkElement();
+
+    let currentOffset = 0;
+    [...node.childNodes].forEach((child) => {
+      if (
+        currentOffset >= startOffset &&
+        currentOffset <= endOffset &&
+        textMatch.includes(child.textContent)
+      ) {
+        if (!el.childElementCount) {
+          node.appendChild(el);
+        }
+        el.appendChild(child);
+      } else {
+        node.appendChild(child);
+      }
+
+      currentOffset += child.textContent.length;
+    });
   }
 
   return el;
