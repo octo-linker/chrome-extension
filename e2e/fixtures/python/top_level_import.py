@@ -1,11 +1,9 @@
 # @Disabled OctoLinkerResolve(<root>/python/relative/subpackage1)
 from relative import subpackage1
-
 # @Disabled OctoLinkerResolveAbove(<root>/python/relative/)
 
 # @Disabled OctoLinkerResolve(<root>/python/relative/simple.py)
 from relative import simple
-
 # @Disabled OctoLinkerResolveAbove(<root>/python/relative/)
 
 # @Disabled OctoLinkerResolve(<root>/python/relative/simple.py)
